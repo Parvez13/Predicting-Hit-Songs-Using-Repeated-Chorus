@@ -9,10 +9,7 @@ import os
 import logging
 import warnings
 
-import ctypes.util
-path = ctypes.util.find_library(name)
-if name=='sndfile':
-        path='/System/Library/Frameworks/CoreAudio.framework/sndfile'
+
 # if name=='AudioUnit':
 #         path='/System/Library/Frameworks/AudioUnit.framework/AudioUnit'
 
@@ -47,6 +44,10 @@ def predict():
         song = request.files['upload_song']
         song_path = os.path.join(app.config['UPLOAD_FOLDER'],'FIle_to_Save.mp3')
         song.save(song_path)
+        import ctypes.util
+        path = ctypes.util.find_library(name)
+        if name=='sndfile':
+                path='/System/Library/Frameworks/CoreAudio.framework/sndfile'
 
         repeated_chorus = extract_song_chorus(song_path, app.config['UPLOAD_FOLDER'])
        # app.logger.info(repeated_chorus)
