@@ -1,6 +1,12 @@
 import librosa
 import numpy as np
 from scipy.stats import skew, kurtosis
+import ctypes.util
+path = ctypes.util.find_library(name)
+if name=='sndfile':
+        path='/System/Library/Frameworks/CoreAudio.framework/sndfile'
+    if name=='AudioUnit':
+        path='/System/Library/Frameworks/AudioUnit.framework/AudioUnit'
 
 
 def statistics(list, feature, columns_name, data):
