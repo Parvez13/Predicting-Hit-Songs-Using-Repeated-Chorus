@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Repeated chorus</title>
+
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+ <div class='login'>
+  <h1 > Predicting Hit Songs Using Repeated Chorus </h1>
+  <form action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data">
+    <label for='artist_name' style="font-size: 20px">Artist Name </label>
+    <br><br>
+    <input id='artist_name' type='text' name='artist'>
+    <br><br>
+    <label for='song_title' style="font-size: 20px" >Song Title</label>
+    <br><br>
+    <input id='song_title' type='text' name='song'>
+    <br><br>
+    <label style="font-size: 20px"> Choose the File to upload: </label>
+    <br><br>
+    <input id='mysong' type='file'class="btn btn-secondary" name='upload_song'>
+    <br>
+    <br>
+    <input id='myfile' type='submit'class="btn btn-primary btn-block btn-large">
+    <br><br><br>
+    {{ prediction_text}}
+  </form>
+</div>
+</body>
+</html>
